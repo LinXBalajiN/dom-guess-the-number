@@ -1,1 +1,36 @@
-<h1>Guess The Number within 1 to 10</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Guess_Num</title>
+</head>
+
+<body>
+    <h1>Guess The Number within 1 to 10</h1>
+    <input type="number" name="guess-number" id="gnum">
+    <button id="check" onclick="check()">Check</button>
+    <p>Random Number is : <span id="random"></span></p>
+    <script>
+        function check() {
+            let p = document.getElementById('random');
+            let random = Math.random() * 10 + 1;
+            let randomFloor = Math.floor(random);
+            p.innerText = randomFloor;
+            let guessNumber = document.getElementById("gnum").value;
+
+            if (guessNumber == null || guessNumber > 10 || guessNumber < 1) {
+                alert('Please enter a number between 1 and 10');
+                return; // stop execution if the number is not valid
+            }
+
+            if (guessNumber == randomFloor) {
+                alert('Congratulations! You guessed the correct number.');
+            } else {
+                alert('Wrong, try again!');
+            }
+        }
+    </script>
+</body>
+</html>
